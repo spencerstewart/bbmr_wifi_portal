@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Big Bear Mountain Resort!</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.1.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    // Toggles the button to connect to wifi depending on whether user agrees or not
+      function toggleBtn() {
+        if (!document.getElementById("accept-tou").checked) {
+          document.getElementById("connect").disabled = true;
+        }
+        else {
+          document.getElementById("connect").disabled = false;
+        }
+      };
+    </script>
+
+    <!-- Custom CSS for responsive logo, padding, and fonts -->
+    <style media="screen">
+      .portal-tos {
+        padding: 2em;
+      }
+      body {
+        margin: 40px 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5em;
+        color: #999;
+      }
+      @media (max-width: 993px) {
+         .portal-logo {
+            max-width: 250px;
+          }
+      }
+      @media (min-width: 1100px) {
+        .portal-tos {
+          font-size: 2em;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <!-- Logo Row -->
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-center">
+          <img src="images/BBMR_Combo.png" alt="BBMR Combo Logo" class="img-responsive center-block portal-logo">
+        </div>
+      </div>
+      <!-- TOS intro paragraph -->
+      <div class="row portal-tos">
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <p>
+            Thanks for visiting Big Bear Mountain Resorts. Please accept the terms of services to access our wi-fi.
+          </p>
+        </div>
+      </div>
+      <!-- Accept TOS row -->
+      <div class="row portal-accept">
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <form name="input" method="post" action="login">
+            <div class="tou-box">
+              <fieldset class="accept-tou">
+                <input id="accept-tou" type="checkbox" onclick="toggleBtn();" checked="checked" name="accept-tou" value="yes" />
+                <label class="normal" for="accept-tou">I accept the <a data-toggle="modal" data-target="#tosModal">Terms of Service</a></label>
+              </fieldset>
+              <div class="form-controls">
+                <unifi if="auth_none">
+                  <input name="connect" type="submit" value="Connect" id="connect" class="btn btn-default requires-tou" />
+                </unifi>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- end TOS row -->
+    </div>
+
+
+    <!-- TOS Modal -->
+    <div class="modal fade" id="tosModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Terms of Service</h4>
+          </div>
+          <div class="modal-body">
+            <div class="tou-wrapper" id="tou">
+              <div class="tou">
+              <p>By accessing the wireless network, you acknowledge that you're of legal age, you have read and understood and agree to be bound by this agreement</p>
+              <ul>
+                <li>The wireless network service is provided by the property owners and is completely at their discretion. Your access to the network may be blocked, suspended, or terminated at any time for any reason.</li>
+                <li>You agree not to use the wireless network for any purpose that is unlawful and take full responsibility of your acts.</li>
+                <li>The wireless network is provided &quot;as is&quot; without warranties of any kind, either expressed or implied. </li>
+              </ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
