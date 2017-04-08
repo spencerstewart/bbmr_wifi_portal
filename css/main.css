@@ -2,6 +2,16 @@
 .portal-tos {
   padding: 2em;
 }
+.main-div {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.row {
+  padding: .5em;
+}
+.btn {
+  margin: 1em;
+}
 body {
   margin: 40px 0;
   font-family: 'Montserrat', sans-serif;
