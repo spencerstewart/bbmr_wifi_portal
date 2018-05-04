@@ -12,6 +12,10 @@
 .btn {
   margin: 1em;
 }
+.clickable {
+  cursor: pointer;
+}
+
 body {
   margin: 40px 0;
   font-family: sans-serif;
